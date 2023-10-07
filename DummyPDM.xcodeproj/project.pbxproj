@@ -11,6 +11,7 @@
 		89AD9DA52AD189C70037AB4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD9DA42AD189C70037AB4B /* ContentView.swift */; };
 		89AD9DA72AD189CC0037AB4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89AD9DA62AD189CC0037AB4B /* Assets.xcassets */; };
 		89AD9DAA2AD189CC0037AB4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89AD9DA92AD189CC0037AB4B /* Preview Assets.xcassets */; };
+		89AD9DB12AD18C9D0037AB4B /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AD9DB02AD18C9D0037AB4B /* SignInView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		89AD9DA42AD189C70037AB4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		89AD9DA62AD189CC0037AB4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89AD9DA92AD189CC0037AB4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		89AD9DB02AD18C9D0037AB4B /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				89AD9DA22AD189C70037AB4B /* DummyPDMApp.swift */,
 				89AD9DA42AD189C70037AB4B /* ContentView.swift */,
+				89AD9DB02AD18C9D0037AB4B /* SignInView.swift */,
 				89AD9DA62AD189CC0037AB4B /* Assets.xcassets */,
 				89AD9DA82AD189CC0037AB4B /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89AD9DB12AD18C9D0037AB4B /* SignInView.swift in Sources */,
 				89AD9DA52AD189C70037AB4B /* ContentView.swift in Sources */,
 				89AD9DA32AD189C70037AB4B /* DummyPDMApp.swift in Sources */,
 			);
