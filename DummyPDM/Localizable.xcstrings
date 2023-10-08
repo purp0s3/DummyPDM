@@ -1,0 +1,59 @@
+{
+  "sourceLanguage" : "pt-BR",
+  "strings" : {
+    "Back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voltar"
+          }
+        }
+      }
+    },
+    "Cadastro" : {
+
+    },
+    "Criar" : {
+
+    },
+    "Criar conta" : {
+
+    },
+    "DummyPDM" : {
+
+    },
+    "Email" : {
+
+    },
+    "Entrar" : {
+
+    },
+    "Nome Completo" : {
+
+    },
+    "Nome: Francisco Pereira" : {
+
+    },
+    "Perfil" : {
+
+    },
+    "Programação para Dispositivos Móveis" : {
+
+    },
+    "Quem é você?" : {
+
+    },
+    "Senha" : {
+
+    },
+    "Telefone" : {
+
+    },
+    "Telefone: +55 (11) 96490-9693" : {
+
+    }
+  },
+  "version" : "1.0"
+}

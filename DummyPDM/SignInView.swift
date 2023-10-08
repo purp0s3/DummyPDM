@@ -12,7 +12,8 @@ struct SignInView: View {
     @State private var email = ""
     @State private var senha = ""
     @State private var isPasswordVisible = false //a senha é oculta
-
+    
+    
     var body: some View {
         VStack {
                         
@@ -28,13 +29,13 @@ struct SignInView: View {
                         )
                     )
                 .shadow(radius: 3)
-                .padding()
+                .padding(.bottom, 5)
                         
             
             Text("Programação para Dispositivos Móveis") //subtítulo
                 .font(.headline)
                 .multilineTextAlignment(.center)
-                .padding(.bottom, 99)
+                .padding()
                       
             
             ZStack {
@@ -43,12 +44,12 @@ struct SignInView: View {
                     .aspectRatio(contentMode: .fill)
                     .shadow(radius: 25)
                     .frame(width: 200, height: 200)
-                    .padding(.top, -35)
+                    .padding()
                             
                 RoundedRectangle(cornerRadius: 15) //bordas arredondadas
                     .stroke(Color.black, lineWidth: 5)
                     .frame(width: 205, height: 205)
-                    .padding(.top, -35)
+                    .padding()
                 }
             
             
@@ -56,39 +57,46 @@ struct SignInView: View {
                 .font(.title)
                 .multilineTextAlignment(.center)
                 .shadow(radius:3)
-                .padding(.top, 40)
+                .padding()
 
             
             TextField("Email", text: $email)
-                .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .font(Font.system(size: 27))
                 .shadow(radius: 3)
+                .textInputAutocapitalization(.never)
+                .keyboardType(.emailAddress)
+                .padding()
+
             
             ZStack(alignment: .trailing) {
                 if isPasswordVisible {
                     TextField("Senha", text: $senha)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .font(Font.system(size: 27))
                     .shadow(radius: 3)
+                    .textInputAutocapitalization(.never)
                 } else {
                     SecureField("Senha", text: $senha)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         .font(Font.system(size: 27))
                         .shadow(radius: 3)
+                        .textInputAutocapitalization(.never)
                 }
                 Button(action: {
                     isPasswordVisible.toggle() //senha com botão mostrar/ocultar
                 }) {
                         Image(systemName: isPasswordVisible ? "eye.slash.fill" : "eye.fill")
+                        .frame(width: 40 , height: 40)
                         .foregroundColor(.gray)
                 }
                         .padding(.trailing, 8)
             }
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
             
             
             NavigationLink(
-                destination: Text("Página de Perfil"), // profile
+                destination: UserProfileView(), // profile
                 label: {
                     Text("Entrar")
                         .font(Font.system(size: 22, weight: .bold))
@@ -102,23 +110,17 @@ struct SignInView: View {
             .padding()
             
             NavigationLink(
-                destination: Text("Página de Cadastro"), // criar
+                destination: SignUpView(), // criar
                 label: {
                     Text("Criar conta")
                         .font(.headline)
                         .foregroundColor(.blue)
-                        .padding(.bottom, 85)
+                        .padding(.bottom, 60)
                 }
             )
             
             .padding()
-            
-            Text("Unicid, São Paulo.\n2023.")
-                .font(Font.system(size: 12))
-                .multilineTextAlignment(.center)
-                .foregroundColor(.black)
-                .padding(.top, -100)
-            
+        
         }
         .padding()
     }
