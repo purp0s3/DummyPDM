@@ -18,41 +18,61 @@ struct SignInView: View {
                         
             Text("DummyPDM") //título
                 .font(.largeTitle)
-                .foregroundColor(Color.blue)
-                .shadow(radius: 3)
                 .multilineTextAlignment(.center)
+                .foregroundStyle(
+
+                        LinearGradient(
+                            colors: [.blue, .purple],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
+                    )
+                .shadow(radius: 3)
                 .padding()
                         
+            
             Text("Programação para Dispositivos Móveis") //subtítulo
                 .font(.headline)
                 .multilineTextAlignment(.center)
-                .padding()
-                       
+                .padding(.bottom, 99)
+                      
+            
             ZStack {
                 Image("logo") //logo
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .shadow(radius: 25)
                     .frame(width: 200, height: 200)
+                    .padding(.top, -35)
                             
                 RoundedRectangle(cornerRadius: 15) //bordas arredondadas
                     .stroke(Color.black, lineWidth: 5)
                     .frame(width: 205, height: 205)
+                    .padding(.top, -35)
                 }
             
-        Spacer()
+            
+            Text("Quem é você?")
+                .font(.title)
+                .multilineTextAlignment(.center)
+                .shadow(radius:3)
+                .padding(.top, 40)
+
             
             TextField("Email", text: $email)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .shadow(radius: 3)
                 .padding()
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .font(Font.system(size: 27))
+                .shadow(radius: 3)
             
             ZStack(alignment: .trailing) {
                 if isPasswordVisible {
                     TextField("Senha", text: $senha)
+                    .font(Font.system(size: 27))
                     .shadow(radius: 3)
                 } else {
                     SecureField("Senha", text: $senha)
+                        .font(Font.system(size: 27))
                         .shadow(radius: 3)
                 }
                 Button(action: {
@@ -66,7 +86,6 @@ struct SignInView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
             
-        Spacer()
             
             NavigationLink(
                 destination: Text("Página de Perfil"), // profile
@@ -80,19 +99,25 @@ struct SignInView: View {
                 }
             )
             
-        Spacer()
+            .padding()
             
             NavigationLink(
                 destination: Text("Página de Cadastro"), // criar
                 label: {
                     Text("Criar conta")
                         .font(.headline)
-                        .padding()
                         .foregroundColor(.blue)
+                        .padding(.bottom, 85)
                 }
             )
             
-        Spacer()
+            .padding()
+            
+            Text("Unicid, São Paulo.\n2023.")
+                .font(Font.system(size: 12))
+                .multilineTextAlignment(.center)
+                .foregroundColor(.black)
+                .padding(.top, -100)
             
         }
         .padding()
