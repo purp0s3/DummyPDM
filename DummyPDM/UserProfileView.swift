@@ -13,33 +13,35 @@ struct UserProfileView: View {
             Text("Perfil") // Title
                 .font(.largeTitle)
                 .foregroundStyle(
-
-                        LinearGradient(
-                            colors: [.blue, .purple],
-                            startPoint: .leading,
-                            endPoint: .trailing
-                        )
-                    )                
+                    LinearGradient(
+                        colors: [.blue, .purple],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                )
                 .shadow(radius: 3)
                 .padding()
 
-            Image(systemName: "person.circle.fill") // Placeholder image
+            Image(systemName: "person.circle.fill") // Placeholder
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 150, height: 150)
                 .foregroundColor(.blue)
                 .padding()
 
-            Text("Nome: Francisco Pereira")
-                .font(.headline)
-                .padding()
+            // Display
+            if let userName = UserDefaults.standard.string(forKey: "name"),
+               let userEmail = UserDefaults.standard.string(forKey: "email") {
+                Text("Nome: \(userName)")
+                    .font(.headline)
+                    .padding()
 
-            Text("Telefone: +55 (11) 96490-9693")
-                .font(.headline)
-                .padding()
+                Text("Email: \(userEmail)")
+                    .font(.headline)
+                    .padding()
+            }
         }
-        
-     .padding()
-        
+        .padding()
     }
 }
+

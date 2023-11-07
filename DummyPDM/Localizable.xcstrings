@@ -27,13 +27,16 @@
     "Email" : {
 
     },
+    "Email: %@" : {
+
+    },
     "Entrar" : {
 
     },
     "Nome Completo" : {
 
     },
-    "Nome: Francisco Pereira" : {
+    "Nome: %@" : {
 
     },
     "Perfil" : {
@@ -46,12 +49,6 @@
 
     },
     "Senha" : {
-
-    },
-    "Telefone" : {
-
-    },
-    "Telefone: +55 (11) 96490-9693" : {
 
     }
   },

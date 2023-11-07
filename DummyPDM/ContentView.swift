@@ -8,16 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        NavigationView {
-            SignInView()
-        }
-    }
-}
+    @State private var isSignInActive = true
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-        .preferredColorScheme(.light)
+    var body: some View {
+        if isSignInActive {
+            SignInView(isSignInActive: $isSignInActive)
+        } else {
+            UserProfileView()
+        }
     }
 }

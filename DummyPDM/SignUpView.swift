@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @State private var nome = ""
-    @State private var telefone = ""
+    @State private var name = ""
     @State private var email = ""
-    @State private var senha = ""
-    @State private var isPasswordVisible = false // a senha é oculta
+    @State private var password = ""
+    @State private var isPasswordVisible = false
+    @Binding var isSignInActive: Bool
 
     var body: some View {
         VStack {
-            Text("Cadastro") // título
+            Text("Cadastro")
                 .font(.largeTitle)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(
@@ -29,42 +29,37 @@ struct SignUpView: View {
                 .shadow(radius: 3)
                 .padding()
 
-            
-            TextField("Nome Completo", text: $nome)
+            TextField("Nome Completo", text: $name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .font(Font.system(size: 27))
                 .shadow(radius: 3)
                 .textInputAutocapitalization(.words)
                 .padding()
-            
-            
-            TextField("Telefone", text: $telefone)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .font(Font.system(size: 27))
-                .shadow(radius: 3)
-                .textInputAutocapitalization(.never)
-                .padding()
-            
-            
+
             TextField("Email", text: $email)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .font(Font.system(size: 27))
                 .shadow(radius: 3)
                 .textInputAutocapitalization(.never)
+                .keyboardType(.emailAddress)
                 .padding()
 
             ZStack(alignment: .trailing) {
                 if isPasswordVisible {
-                    TextField("Senha", text: $senha)
+                    TextField("Senha", text: $password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         .font(Font.system(size: 27))
                         .shadow(radius: 3)
+                        .textInputAutocapitalization(.never)
                 } else {
-                    SecureField("Senha", text: $senha)
+                    SecureField("Senha", text: $password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         .font(Font.system(size: 27))
                         .shadow(radius: 3)
+                        .textInputAutocapitalization(.never)
                 }
                 Button(action: {
-                    isPasswordVisible.toggle() // senha com botão mostrar/ocultar
+                    isPasswordVisible.toggle()
                 }) {
                     Image(systemName: isPasswordVisible ? "eye.slash.fill" : "eye.fill")
                         .frame(width: 40 , height: 40)
@@ -72,25 +67,27 @@ struct SignUpView: View {
                 }
                 .padding(.trailing, 8)
             }
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .textInputAutocapitalization(.never)
             .padding()
 
-            NavigationLink(
-                destination: SignInView().navigationBarBackButtonHidden(true), // profile
-                label: {
-                    Text("Criar")
-                        .font(Font.system(size: 22, weight: .bold))
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-            )
-            .navigationViewStyle(.stack)
+            Button(action: {
+                // Save user data to UserDefaults
+                UserDefaults.standard.set(name, forKey: "name")
+                UserDefaults.standard.set(email, forKey: "email")
+                UserDefaults.standard.set(password, forKey: "password")
+                UserDefaults.standard.synchronize()
 
+                isSignInActive = true
+            }) {
+                Text("Criar")
+                    .font(Font.system(size: 22, weight: .bold))
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
             .padding()
         }
         .padding()
     }
 }
+
